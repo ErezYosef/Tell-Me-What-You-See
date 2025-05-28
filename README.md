@@ -1,6 +1,6 @@
 # Tell Me What You See: Text-Guided Real-World Image Denoising
 
-![Paper](https://img.shields.io/badge/arXiv-2312.10191-blue)
+[![Paper](https://img.shields.io/badge/arXiv-2312.10191-b31b1b)](https://arxiv.org/abs/2312.10191)
 
 ### **Erez Yosef, Raja Giryes**  
  Tel Aviv University, Israel.
