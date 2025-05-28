@@ -2,16 +2,13 @@
 
 [![Paper](https://img.shields.io/badge/arXiv-2312.10191-b31b1b)](https://arxiv.org/abs/2312.10191)
 
-### **Erez Yosef, Raja Giryes**  
- Tel Aviv University, Israel.
+### [**Erez Yosef**](https://erezyosef.github.io/), [**Raja Giryes**](https://www.giryes.sites.tau.ac.il/)  
+Tel Aviv University, Israel.
 
----
 
 ## 📌 Abstract
 
 Image reconstruction from noisy sensor measurements is challenging and many methods have been proposed for it. Yet, most approaches focus on learning robust natural image priors while modeling the scene's noise statistics. In extremely low-light conditions, these methods often remain insufficient. Additional information is needed, such as multiple captures or, as suggested here, scene description. As an alternative, we propose using a text-based description of the scene as an additional prior, something the photographer can easily provide. Inspired by the remarkable success of text-guided diffusion models in image generation, we show that adding image caption information significantly improves image denoising and reconstruction for both synthetic and real-world images.
-
----
 
 
 ## 🧪 Results
