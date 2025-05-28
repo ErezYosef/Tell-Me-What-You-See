@@ -1,0 +1,65 @@
+# Train run will save at: main_path/%y%m%d_%H%M%S_%description"
+paths_yamlfile: diffusion/coco_configs/data_paths.yaml # use <> to set up paths according to the server
+main_path: /data1/erez/Documents/sidd/diffusion_coco_storage
+
+load_file: emabkup_0.9999_1200000.pt # or use --lf ; file name to load from folder given by (-f/ argument
+format_strs: log,csv,wandb
+wandb_project: diffusion_coco_sample
+job_type: condition_s_sample
+wandb_tags: ['condition_sample','s21']
+
+
+#MODEL_FLAGS
+image_size: 128
+input_channels: 8
+out_channels: 4
+num_channels: 128 # 128
+num_res_blocks: 3
+# learn_sigma: False # True
+model_var_type_name: fixed_large
+model_mean_type_name: xstart # xprev / epsilon / xstart
+class_cond: False
+loss_type_name: l1
+attention_resolutions: ''
+num_heads: 1 # D:4
+xf_width: 768
+
+use_fp16: False # D:False
+
+#DIFFUSION_FLAGS
+diffusion_type: base
+model_type: concat_condition_nulllabel
+diffusion_steps: 1000
+noise_schedule: cosine #linear
+ema_rate: 0.9999,0.9997
+#Reweighted VLB?
+
+#TRAIN_FLAGS
+lr: 0.0001
+batch_size: 8
+batches_accumulate_grads: 1
+save_interval: 2000
+log_interval: 500
+num_workers: 8
+train_noise_percent: 0 #3.13
+test_noise_percent: 0 #3.13 #
+
+islora: True
+# lora_checkpoint: null #/data1/erez/Documents/sidd/diffusion_coco/230731_1617_lora_s7_bs16_trainval/ema_0.9999_1020000.pt
+lora_checkpoint: /data1/erez/Documents/sidd/diffusion_coco/230809_1952_lora_s21/ema_0.9999_1300000.pt
+# DATASET:
+dataset_type: s21
+fpath_gt: iso50_t1-50
+fpath_noisy: iso3200_t1-12000
+
+trim_len: 0
+clip_dataset: True # for contidition on clip data
+save_all_samples: True # set to save samples in folder on inference
+deterministic_seed_noise: 0 # set seed to the dataset loading
+
+
+# paths:
+# main_data_path: /data2/erez/datasets/coco_captions/raw_imgs/NU? # NU: disk bottleneck use crops
+main_data_path_train: /data2/erez/datasets/denoising/s21_256/
+main_data_path_val: /data2/erez/datasets/denoising/s21_256/
+# val_percent: 0.1

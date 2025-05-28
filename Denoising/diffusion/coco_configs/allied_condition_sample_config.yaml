@@ -1,0 +1,67 @@
+# Train run will save at: main_path/%y%m%d_%H%M%S_%description"
+paths_yamlfile: diffusion/coco_configs/data_paths.yaml # use <> to set up paths according to the server
+main_path: /data1/erez/Documents/sidd/diffusion_coco_storage
+# load: '' # use -f argument
+# sub_dir_tstsave: 0_tests # NU
+load_file: emabkup_0.9999_1200000.pt # or use --lf ; file name to load from folder given by (-f/ argument
+#resume_ema_opt: False
+format_strs: log,csv,wandb
+wandb_project: diffusion_coco_sample
+job_type: condition_allied_sample
+wandb_tags: ['condition_sample','allied']
+
+
+#MODEL_FLAGS
+image_size: 128
+input_channels: 8 # 3 for diffusion + 3 / 4 for concat rgb/raw image
+out_channels: 4
+num_channels: 128 # 128
+num_res_blocks: 3
+# learn_sigma: False # True
+model_var_type_name: fixed_large  # learned_sigma / fixed_small / fixed_large (default)
+model_mean_type_name: xstart # xprev / epsilon / xstart
+class_cond: False # True for clip embd adaGN
+loss_type_name: l1
+attention_resolutions: '' # 16,problem # D:16,8, REC: 32,16,8
+num_heads: 1 # D:4
+xf_width: 768 # 512 # size of clip embedding
+# dropout 0.1 ?? #D:0.0
+
+use_fp16: False # D:False
+
+#DIFFUSION_FLAGS
+diffusion_type: base
+model_type: concat_condition_nulllabel
+diffusion_steps: 1000
+noise_schedule: cosine #linear
+ema_rate: 0.9999,0.9997
+#Reweighted VLB?
+
+#TRAIN_FLAGS
+lr: 0.0001
+batch_size: 8
+batches_accumulate_grads: 1
+save_interval: 2000
+log_interval: 500
+num_workers: 8
+train_noise_percent: 0 #3.13
+test_noise_percent: 0 #3.13 #
+
+islora: True
+# lora_checkpoint: null #/data1/erez/Documents/sidd/diffusion_coco/230731_1617_lora_s7_bs16_trainval/ema_0.9999_1020000.pt
+lora_checkpoint: /data1/erez/Documents/sidd/diffusion_coco/250105_1421_lora_allied_cond/ema_0.9999_1270000.pt
+# DATASET:
+dataset_type: allied_cam
+fpath_gt: t7000gain0
+fpath_noisy: t175gain32.04
+trim_len: 0
+clip_dataset: True # for contidition on clip data
+save_all_samples: True # set to save samples in folder on inference
+deterministic_seed_noise: 0 # set seed to the dataset loading
+
+
+# paths:
+# main_data_path: /data2/erez/datasets/coco_captions/raw_imgs/NU? # NU: disk bottleneck use crops
+main_data_path_train: /data2/erez/datasets/denoising/allied_256/
+main_data_path_val: /data2/erez/datasets/denoising/allied_256/
+# val_percent: 0.1
