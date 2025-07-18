@@ -10,11 +10,14 @@ Tel Aviv University, Israel.
 
 Image reconstruction from noisy sensor measurements is challenging and many methods have been proposed for it. Yet, most approaches focus on learning robust natural image priors while modeling the scene's noise statistics. In extremely low-light conditions, these methods often remain insufficient. Additional information is needed, such as multiple captures or, as suggested here, scene description. As an alternative, we propose using a text-based description of the scene as an additional prior, something the photographer can easily provide. Inspired by the remarkable success of text-guided diffusion models in image generation, we show that adding image caption information significantly improves image denoising and reconstruction for both synthetic and real-world images.
 
+###  Project Diagram Overview
+
+![Project Diagram](assets/diagram.png)
 
 ## 🧪 Results
 
-### 🎉 Exciting results are on the way!  
-This section will be updated soon with findings from our paper.
+To evaluate the effectiveness of our approach, we conducted extensive experiments on real-world and synthetic data. The figure below highlights key qualitative results, showcasing reconstructed outputs under challenging noise conditions captured in the real world using a Samsung S21 camera, compared to other non-text-guided reconstruction approaches.
+![Project Restuls](assets/results.png)
 
 ---
 
@@ -38,7 +41,7 @@ git clone -b raw_denoiser https://github.com/ErezYosef/guided-diffusion-clip
 
 ```bash
 cd /path-to-clone-aux-repo
-python3 -m pip install -e . #  --use-pep517
+python3 -m pip install -e .
 ```
 
 ## 📁 Downloads and Setup
