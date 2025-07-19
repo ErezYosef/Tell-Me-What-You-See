@@ -17,7 +17,7 @@ Image reconstruction from noisy sensor measurements is challenging and many meth
 ## 🧪 Results
 
 To evaluate the effectiveness of our approach, we conducted extensive experiments on real-world and synthetic data. The figure below highlights key qualitative results, showcasing reconstructed outputs under challenging noise conditions captured in the real world using a Samsung S21 camera, compared to other non-text-guided reconstruction approaches.
-![Project Restuls](assets/results.png)
+![Project Restuls](assets/results.jpg)
 
 ---
 
@@ -62,8 +62,27 @@ To run the model, ensure the following are properly set up in the specified dire
 * Model Weights: Download base diffusion model checkpoints.
 * LoRA Weights: Store LoRA fine-tuned weights at the path (specified by `--lora_checkpoint`).
 
+### 📁 Files Setup Instructions
 
-## 📦 Usage
+To run the code, you first need to extract the model and dataset files provided in the `trained_models.zip` archive, which can be downloaded from the Releases section of this repository.
+
+1. Unzip the archive:
+
+    unzip trained_models.zip -d /data/Tellme/
+
+This will create the following directory structure:
+
+    /data/Tellme/
+    ├── 230803_1653_basecond
+    ├── 230809_1952_lora_s21
+    ├── 250122_1010_lora_allied
+    ├── val_data/
+        ├── allied_256/
+        └── s21_256/
+
+
+
+## 📦 Inference
 
 
 ### Run Inference on Allied Vision Camera Data
@@ -75,12 +94,13 @@ cd ./Denoising
 CUDA_VISIBLE_DEVICES=0 python diffusion/image_sample.py \
   --config_file diffusion/coco_configs/allied_condition_sample_config.yaml \
   -f 1653 \
-  -d loracond_allied_res \
+  -d lora_allied_results \
   --ntimes 1 \
   --trim_len 30 \
-  --lora_checkpoint /data1/erez/Documents/sidd/diffusion_coco/250122_1010_lora_allied_cond_res130_gac2/ema_0.9999_1300000.pt \
+  --lora_checkpoint /data/Tellme/250122_1010_lora_allied/ema_0.9999_1300000.pt \
   --format_strs log
 ```
+Results will be saved in the `/data/Tellme/250122_1010_lora_allied/%y%m%d_%H%M_lora_allied_results` directory.
 
 ### Run Inference on Samsung S21 Camera Data
 
@@ -91,11 +111,12 @@ cd ./Denoising
 CUDA_VISIBLE_DEVICES=0 python diffusion/image_sample.py \
   --config_file diffusion/coco_configs/s_condition_sample_config.yaml \
   -f 1653 \
-  -d s21_lora_sample \
+  -d lora_s21_results \
   --ntimes 1 \
   --trim_len 30 \
   --format_strs log
 ```
+Results will be saved in the `/data/Tellme/230809_1952_lora_s21/%y%m%d_%H%M_lora_s21_results` directory.
 
 ---
 

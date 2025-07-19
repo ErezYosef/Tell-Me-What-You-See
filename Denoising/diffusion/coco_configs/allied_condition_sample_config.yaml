@@ -1,8 +1,6 @@
 # Train run will save at: main_path/%y%m%d_%H%M%S_%description"
-paths_yamlfile: diffusion/coco_configs/data_paths.yaml # use <> to set up paths according to the server
-main_path: /data1/erez/Documents/sidd/diffusion_coco_storage
-# load: '' # use -f argument
-# sub_dir_tstsave: 0_tests # NU
+paths_yamlfile: null # use <> to set up paths according to the server
+main_path: /data/Tellme
 load_file: emabkup_0.9999_1200000.pt # or use --lf ; file name to load from folder given by (-f/ argument
 #resume_ema_opt: False
 format_strs: log,csv,wandb
@@ -48,8 +46,7 @@ train_noise_percent: 0 #3.13
 test_noise_percent: 0 #3.13 #
 
 islora: True
-# lora_checkpoint: null #/data1/erez/Documents/sidd/diffusion_coco/230731_1617_lora_s7_bs16_trainval/ema_0.9999_1020000.pt
-lora_checkpoint: /data1/erez/Documents/sidd/diffusion_coco/250105_1421_lora_allied_cond/ema_0.9999_1270000.pt
+lora_checkpoint: null
 # DATASET:
 dataset_type: allied_cam
 fpath_gt: t7000gain0
@@ -61,7 +58,6 @@ deterministic_seed_noise: 0 # set seed to the dataset loading
 
 
 # paths:
-# main_data_path: /data2/erez/datasets/coco_captions/raw_imgs/NU? # NU: disk bottleneck use crops
-main_data_path_train: /data2/erez/datasets/denoising/allied_256/
-main_data_path_val: /data2/erez/datasets/denoising/allied_256/
+main_data_path_train: /data/Tellme/val_data/allied_256/
+main_data_path_val: /data/Tellme/val_data/allied_256/
 # val_percent: 0.1
