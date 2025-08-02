@@ -1,9 +1,15 @@
 # Tell Me What You See: Text-Guided Real-World Image Denoising
 
-[![Paper](https://img.shields.io/badge/arXiv-2312.10191-b31b1b)](https://arxiv.org/abs/2312.10191)
-
 ### [**Erez Yosef**](https://erezyosef.github.io/), [**Raja Giryes**](https://www.giryes.sites.tau.ac.il/)  
-Tel Aviv University, Israel.
+#### Tel Aviv University, Israel.
+
+This work was published in the **IEEE Open Journal of Signal Processing**, Volume 6, July 2025.   [IEEE Xplore Link](https://ieeexplore.ieee.org/document/11078899)  
+📅 Published: July 14, 2025  
+
+[![IEEE](https://img.shields.io/badge/IEEE-OJSP%202025-blue)](https://ieeexplore.ieee.org/document/11078899)
+[![DOI](https://img.shields.io/badge/DOI-10.1109/OJSP.2025.3588715-blue)](https://doi.org/10.1109/OJSP.2025.3588715)
+[![arXiv](https://img.shields.io/badge/arXiv-2312.10191-b31b1b)](https://arxiv.org/abs/2312.10191)
+
 
 
 ## 📌 Abstract
@@ -127,11 +133,15 @@ Results will be saved in the `/data/Tellme/230809_1952_lora_s21/%y%m%d_%H%M_lora
 If you find this work useful in your research, please cite:
 
 ```bibtex
-@article{yosef2023tell,
-  title={Tell Me What You See: Text-Guided Real-World Image Denoising},
+@article{yosef2025tell,
   author={Yosef, Erez and Giryes, Raja},
-  journal={arXiv preprint arXiv:2312.10191},
-  year={2023}
+  journal={IEEE Open Journal of Signal Processing}, 
+  title={Tell Me What You See: Text-Guided Real-World Image Denoising}, 
+  year={2025},
+  volume={6},
+  pages={890-899},  
+  publisher={IEEE},
+  doi={10.1109/OJSP.2025.3588715}
 }
 ```
 
